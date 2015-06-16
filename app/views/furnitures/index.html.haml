@@ -1,0 +1,43 @@
+%ul.furniture_header_links.clearfix
+  - @furnitures.each do |furniture|
+    %li 
+      = link_to furniture.title, furniture
+.about_imgs.split_33
+  = image_tag("furniture1.jpg")
+.about_imgs.split_33
+  = image_tag("furniture2.jpg")
+.about_imgs.split_33
+  = image_tag("furniture3.jpg")
+.about_content.content 
+  .side_quote.column.split_3
+    %h2 Every piece a unique, stunning and functional addition to your home or business.
+  .column.split_7
+    %h1 Furniture
+    %h5 The process of making a piece of our Wooden Furniture begins with a local craftsman in Vietnam hand picking the best cuts of wood. An expert in their trade, they then craft and carve completely unique furniture with no two pieces the same. Their commitment to quality and pride in their work allow them to create sustainable and stunning furniture that will put the wow into your home.
+    %p Rarely can furniture truly be called one of a kind, but that is exactly what you get from the pieces we sell at wooden Art World. Truly pieces of exceedingly skilled craftsman, each piece starts when a local craftsman hand picks the highest quality of wood. This single piece of wood is then carved and shaped into something functional and stunning. Tables, Chairs and Homeware blends lend both a subtlety and stunning look simultaneously - creating a true centrepiece in your home that does not overpower.<br><br>Each piece of furniture has personally been picked and selected by Wooden Art World experts - ensuring they have been checked for building quality, look and design. The tables and chairs are of the absolute highest quality and you can be ensured to have a piece of furniture that will literally last a lifetime.
+    %ul.read_more.clearfix
+      %li
+        %p Read More:
+      - @furnitures.each do |furniture|
+        %li  
+          = link_to furniture.title+" / ", furniture   
+
+
+
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th{:colspan => "3"}
+  %tbody
+    - @furnitures.each do |furniture|
+      %tr
+        %td= furniture.title
+        %td= furniture.body
+        %td= link_to 'Show', furniture
+        %td= link_to 'Edit', edit_furniture_path(furniture)
+        %td= link_to 'Destroy', furniture, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Furniture', new_furniture_path

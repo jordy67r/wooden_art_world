@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @furniture.title
+%p
+  %strong Body:
+  = @furniture.body
+= link_to 'Edit', edit_furniture_path(@furniture)
+|
+\#{link_to 'Back', furnitures_path}

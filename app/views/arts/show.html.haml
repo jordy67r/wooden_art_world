@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @art.title
+%p
+  %strong Body:
+  = @art.body
+= link_to 'Edit', edit_art_path(@art)
+|
+\#{link_to 'Back', arts_path}

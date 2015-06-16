@@ -1,0 +1,40 @@
+%ul.furniture_header_links.clearfix
+  - @arts.each do |art|
+    %li 
+      = link_to art.title, art
+.about_imgs.split_33
+  = image_tag("art1.jpg")
+.about_imgs.split_33
+  = image_tag("art2.jpg")
+.about_imgs.split_33
+  = image_tag("art3.jpg")
+.about_content.content 
+  .side_quote.column.split_3
+    %h2 Handcrafted from single pieces of wood. Each statue, sculpture, model and more is completely unique and one of a kind.
+  .column.split_7
+    %h1 Art
+    %h5 We have made connections with multiple artists and craftsman in Indonesia who ply their trade and passion into the most stunning and creative works of art. This includes working with revered artist Barata Sena who showcases his work worldwide, and we sell exclusively at Wooden Art World.
+    %p All of the pieces of Art are handcrafted to perfection using the highest quality wood and other materials. It is ensured to be a sustainable process throughout every level of production, something understood by us at Wooden Art World and our Artists accordingly. Roots are often used which are a by-product of larger industry who would consider them waste. Our Artists however, see them as potential and craft them accordingly.<br><br>Every single piece is a one off, a unique piece of carefully crafted art which only you can lay claim too. Certificates of Authenticity are provided along with each piece so you truly have a collectible. One of the most stunning types of art we sell are the clothing models. They have a realistic thickness when compared to their real life counterparts yet have been carved painstakingly and with amazing precision by a single artist.
+    %ul.read_more.clearfix
+      %li
+        %p Read More:
+      - @arts.each do |art|
+        %li  
+          = link_to art.title+" / ", art   
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th{:colspan => "3"}
+  %tbody
+    - @arts.each do |art|
+      %tr
+        %td= art.title
+        %td= art.body
+        %td= link_to 'Show', art
+        %td= link_to 'Edit', edit_art_path(art)
+        %td= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Art', new_art_path
